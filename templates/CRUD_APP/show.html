@@ -1,0 +1,40 @@
+{% extends 'layout.html'%}
+
+{% block title %}
+<title>SHOW Details</title>
+{% endblock %}
+
+
+{% block content %}
+<table class='table table-light'>
+    <thead>
+        <tr>
+            <th> E ID </th>
+            <th> E NAME </th>
+            <th> E MOBILE </th>
+            <th> E MAIL </th>
+            <th> E ADDRESS </th>
+            <th> E DATE </th>
+
+        </tr>
+        <tbody>
+            {% for obj in data %}
+            <tr>
+                <td>{{obj.eid}}</td>
+                <td>{{obj.ename}}</td>
+                <td>{{obj.emobile}}</td>
+                <td>{{obj.email}}</td>
+                <td>{{obj.eaddress}}</td>
+                <td>{{obj.edate}}</td>
+            
+                <td>
+                    <a href="{% url 'update_url' obj.eid %}"><button class='btn btn-success btn-sm mr-3'>UPDATE</button></a>
+                    <a href="{% url 'delete_url' obj.eid %}"><button class='btn btn-warning btn-sm'>DELETE</button></a>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </thead>
+</table>
+{%endblock%}

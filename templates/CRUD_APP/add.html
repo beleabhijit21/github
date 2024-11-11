@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+
+  <title>Registration form</title>
+
+  {% endblock%}
+
+{% block content %}
+<div class="container jumbotron">
+  <form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="SUBMIT" class="btn btn-success col-6"> 
+    <input type="reset" value="RESET" class="btn btn-warning col-6 float-right"
+  </form>
+  </div>
+{% endblock %}
